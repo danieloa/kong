@@ -1,0 +1,12 @@
+[Unit]
+Description=Execute Kong as a service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/kong start
+ExecStop=/usr/local/bin/kong stop
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+

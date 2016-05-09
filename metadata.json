@@ -1,0 +1,14 @@
+{
+  "name": "danieloa-kong",
+  "version": "0.1.0",
+  "author": "danieloa",
+  "summary": "deploy and manage kong api server/cluster",
+  "license": "Apache 2.0",
+  "source": "https://github.com/danieloa/danieloa-kong.git",
+  "project_page": "https://github.com/danieloa/danieloa-kong",
+  "issues_url": "https://github.com/danieloa/danieloa-kong/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+

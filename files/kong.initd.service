@@ -1,0 +1,52 @@
+#!/bin/bash
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+RETVAL=0
+
+start() {
+        echo -n "Starting kong: "
+        kong start
+        RETVAL=$?
+        touch /var/lock/subsys/kong
+        return $RETVAL
+}
+
+stop() {
+        echo -n "Shutting down kong: "
+        kong stop
+        RETVAL=$?
+        rm -f /var/lock/subsys/kong
+        return $RETVAL
+}
+
+status() {
+         echo -n "Status kong service: "
+         kong status
+        RETVAL=$?
+         return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        <report the status of the daemons in free-form format,
+        perhaps with the status function>
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: <servicename> {start|stop|status|restart"
+        exit 1
+        ;;
+esac
+exit $RETVAL
